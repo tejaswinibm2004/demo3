@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CountingLab — order analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/config.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo"><span class="mark"><i data-lucide="bar-chart-3"></i></span> Counting<span>Lab</span></div>
+    <nav>
+      <a class="active" href="#"><i data-lucide="layout-dashboard"></i> Overview</a>
+      <a href="#orders"><i data-lucide="shopping-bag"></i> Orders</a>
+      <a href="#"><i data-lucide="pie-chart"></i> Reports</a>
+      <a href="#"><i data-lucide="users"></i> Customers</a>
+    </nav>
+    <div class="side-foot"><div class="live"><span class="dot"></span> Data source: fixture</div><small>BugShield demo · BCS786</small></div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <div class="crumb">Workspace / <b>Overview</b></div>
+      <div class="top-right">
+        <div class="date"><i data-lucide="calendar-days"></i> <span id="today"></span></div>
+        <button class="icon-btn"><i data-lucide="bell"></i></button>
+        <div class="avatar">CL</div>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-head">
+        <div><span class="eyebrow">Analytics overview</span><h1>Order analytics</h1>
+          <p>Numbers computed from a fixed fixture set — some of them are deliberately wrong.</p></div>
+        <span class="build-badge" id="buildTag">local</span>
+      </div>
+
+      <section class="kpis" id="kpis"></section>
+
+      <div class="grid-2">
+        <section class="card">
+          <div class="card-head"><div><h3>Revenue trend</h3><span class="sub">Last 7 orders</span></div><span class="chip">gross</span></div>
+          <div class="chart" id="chart"></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div><h3>Order status</h3><span class="sub">Distribution</span></div></div>
+          <div class="donut-wrap" id="donut"></div>
+        </section>
+      </div>
+
+      <section class="card" id="orders">
+        <div class="card-head"><div><h3>Recent orders</h3><span class="sub" id="rangeLabel"></span></div>
+          <span class="chip"><i data-lucide="list-filter"></i> latest first</span></div>
+        <div id="orderTable"></div>
+        <div class="pager"><button id="prev"><i data-lucide="chevron-left"></i> Previous</button><span id="pageLabel">Page 1</span><button id="next">Next <i data-lucide="chevron-right"></i></button></div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
